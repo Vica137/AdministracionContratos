@@ -1,0 +1,26 @@
+# .htaccess
+RewriteEngine On
+
+# Si el usuario no está autenticado, redirigir a la página de inicio de sesión
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/inicioSesion.php$ [NC]
+RewriteCond %{REQUEST_URI} !^/registroUsuarios.php$ [NC]
+RewriteCond %{REQUEST_URI} !^/css/.*$ [NC]
+RewriteCond %{REQUEST_URI} !^/js/.*$ [NC]
+RewriteCond %{REQUEST_URI} !^/img/.*$ [NC]
+RewriteCond %{REQUEST_URI} !^/favicon.ico$ [NC]
+RewriteCond %{REQUEST_URI} !^/index.php$ [NC]
+RewriteRule ^(.*)$ login.php [NC,L]
+
+RewriteEngine On
+
+# Condición: Si la solicitud es para un archivo existente, no reescribir
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Condición: Si la solicitud es para un directorio existente, no reescribir
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Reescribir todas las demás solicitudes a index.php
+RewriteRule ^(.*)$ index.php [L,QSA]
+
