@@ -1,0 +1,13 @@
+{
+  "name": "sistemacontratos",
+  "version": "1.0.0",
+  "description": "Tu descripción aquí",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "prod": "webpack --mode production"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
+  }
+}
